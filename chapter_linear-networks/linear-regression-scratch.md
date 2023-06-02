@@ -126,6 +126,7 @@ def data_iter(batch_size, features, labels):
     indices = list(range(num_examples))
     # 这些样本是随机读取的，没有特定的顺序
     random.shuffle(indices)
+    #range(start, stop[, step])
     for i in range(0, num_examples, batch_size):
         batch_indices = d2l.tensor(
             indices[i: min(i + batch_size, num_examples)])
