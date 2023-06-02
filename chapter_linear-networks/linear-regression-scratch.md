@@ -136,8 +136,10 @@ def data_iter(batch_size, features, labels):
 #@tab tensorflow
 def data_iter(batch_size, features, labels):
     num_examples = len(features)
+    #list(range()) range(num)左闭右开[0,num)
     indices = list(range(num_examples))
     # 这些样本是随机读取的，没有特定的顺序
+    #random.shuffle()不会生成新的列表，只是将原列表元素的次序打乱。
     random.shuffle(indices)
     for i in range(0, num_examples, batch_size):
         j = tf.constant(indices[i: min(i + batch_size, num_examples)])
